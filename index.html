@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happiness Makers - Customized Handmade Gifts</title>
+<meta name="description" content="Happiness Makers تقدم منتجات يدوية فريدة تشمل ورود ساتان، طارات مطرزة، بورتوكليه، شالات وقبعات كروشيه. هدايا يدوية مصممة بعناية ومخصصة حسب الطلب. التوصيل متوفر في الضاحية الجنوبية، بيروت.">
+<meta name="keywords" content="منتجات يدوية، هدايا يدوية، ورود ساتان، طارات مطرزة، بورتوكليه مطرزة، شالات كروشيه، طقية كروشيه، ديكور يدوي، لبنان، Happiness Makers">
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Cairo:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      font-family: 'Cairo', sans-serif;
+    }
+    
+    .elegant-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+    
+    .product-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e8e8e8;
+    }
+    
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 151, 0.03) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    
+    .product-card:hover::before {
+      opacity: 1;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(37, 99, 151, 0.15);
+      border-color: #256397;
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: #256397;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(37, 99, 151, 0.93) 0%, rgba(37, 99, 151, 0.85) 100%);
+    }
+    
+    .btn-elegant {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      font-weight: 600;
+    }
+    
+    .btn-elegant::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+    
+    .btn-elegant:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    .btn-elegant:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 99, 151, 0.3);
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 20px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      transform: translateX(50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #256397, transparent);
+      border-radius: 2px;
+    }
+    
+    .decorative-line {
+      width: 70px;
+      height: 3px;
+      background: #256397;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .contact-card {
+transition: all 0.35s ease;
+      border: 3px solid transparent;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .bestseller-badge {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.9;
+        transform: scale(1.02);
+      }
+    }
+    
+    .list-item {
+      transition: transform 0.2s ease;
+    }
+    
+    .list-item:hover {
+      transform: translateX(-4px);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full smooth-scroll">
+  <div class="w-full h-full overflow-auto" id="main-container" style="background-color: #fafbfc;"><!-- Navigation -->
+   <nav class="fixed top-0 w-full bg-white shadow-sm z-50" style="backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.98);">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+     <div class="flex justify-between items-center">
+      <div class="elegant-title text-3xl font-bold" style="color: #256397;" id="nav-logo">
+       Happiness Makers
+      </div>
+      <div class="flex gap-8"><a href="#home" class="nav-link" style="color: #333;">الرئيسية</a> <a href="#about" class="nav-link" style="color: #333;">من نحن</a> <a href="#products" class="nav-link" style="color: #333;">منتجاتنا</a> <a href="#contact" class="nav-link" style="color: #333;">تواصلوا معنا</a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="home" class="min-h-screen flex items-center pt-20 relative">
+   <div class="absolute inset-0" style="background: url('happiness makers.jpg') center/cover;"></div>
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="max-w-7xl mx-auto px-6 py-24 text-center text-white relative z-10 w-full">
+     <div class="fade-in-up">
+      <h2 class="elegant-title text-7xl font-bold mb-6 leading-tight" id="hero-title">Happiness Makers</h1>
+      <div class="decorative-line mb-8"></div>
+      <p class="text-2xl mb-4 font-light" id="hero-subtitle">حيث تُصنع السعادة بأيدٍ مبدعة</p>
+      <p class="text-lg mb-12 opacity-95">قطع فنية يدوية · مصنوعة بحُب · مخصصة حسب الطلب</p>
+      <div class="flex gap-6 justify-center flex-wrap"><a href="https://www.instagram.com/happinessmakers6" target="_blank" rel="noopener noreferrer" class="btn-elegant bg-white text-lg px-10 py-4 rounded-full inline-flex items-center gap-3" style="color: #256397;">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg> تابعونا على إنستغرام </a> <a href="https://wa.me/9613577895" target="_blank" rel="noopener noreferrer" class="btn-elegant text-lg px-10 py-4 rounded-full inline-flex items-center gap-3 text-white" style="background-color: #256397;">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg> تواصلوا عبر واتساب </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+     <h2 class="elegant-title section-title text-5xl font-bold text-center mb-16" style="color: #256397;" id="about-title">من نحن</h2>
+     <div class="text-center max-w-3xl mx-auto">
+      <p class="text-2xl leading-relaxed mb-8" style="color: #333;" id="about-content">Happiness Makers تقدم منتجات يدوية ومخصصة تشمل ورد ساتان، طارات مطرزة، بورتوكليه، وشالات وقبعات وأغلفة كتب كروشيه. جميع المنتجات مصنوعة بعناية ودقة، وقابلة للتخصيص.</p>
+      <div class="flex items-center justify-center gap-3 text-lg" style="color: #666;">
+       <svg class="w-6 h-6" style="color: #256397;" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+       </svg><span>الضاحية الجنوبية لبيروت، لبنان - خدمة التوصيل متوفرة ضمن الضاحية </span>
+      </div>
+     </div>
+    </div>
+   </section><!-- Products Section -->
+   <section id="products" class="py-24" style="background-color: #f8f9fb;">
+    <div class="max-w-7xl mx-auto px-6">
+     <h2 class="elegant-title section-title text-5xl font-bold text-center mb-20" style="color: #256397;" id="products-title">منتجاتنا المميزة</h2>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"><!-- Satin Flowers - BESTSELLER -->
+      <div class="product-card bg-white rounded-3xl shadow-lg overflow-hidden">
+       <div class="relative overflow-hidden">
+        <div class="bestseller-badge absolute top-5 left-5 z-10 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-5 py-2 rounded-full text-sm font-bold shadow-xl">
+         الأكثر مبيعًا ⭐
+        </div><img src="satin flowers.jpg" alt="ورود ساتان" class="product-image" onerror="this.src=''; this.style.display='none';">
+       </div>
+       <div class="p-8">
+        <h3 class="elegant-title text-3xl font-bold mb-4" style="color: #256397;">ورود ساتان</h3>
+        <p class="text-lg mb-5 leading-relaxed" style="color: #555;">ورود دائمة وأنيقة مصنوعة يدويًا</p>
+        <ul class="space-y-3">
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">وردة واحدة أو بوكيه كامل</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">تغليف جميل</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">مناسبة للهدايا والتزيين</span></li>
+        </ul>
+       </div>
+      </div><!-- Embroidered Hoops -->
+
+<div class="product-card bg-white rounded-3xl shadow-lg overflow-hidden">
+       <div class="overflow-hidden"><img src="طارة يا صاحب الزمان.jpg" alt="طارات مطرزة" class="product-image" onerror="this.src=''; this.style.display='none';">
+       </div>
+       <div class="p-8">
+        <h3 class="elegant-title text-3xl font-bold mb-4" style="color: #256397;">طارات مطرزة يدويًا</h3>
+        <p class="text-lg mb-5 leading-relaxed" style="color: #555;">تطريز يدوي وفني بأحجام متنوعة</p>
+        <ul class="space-y-3">
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">الأحجام: 10، 15، 20، 25، 30 cm</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">تخصيص بالألوان والرسومات والعبارات</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">قطعة فنية للديكور</span></li>
+        </ul>
+       </div>
+      </div><!-- Keychains -->
+      <div class="product-card bg-white rounded-3xl shadow-lg overflow-hidden">
+       <div class="overflow-hidden"><img src="بورتوكليه طارة1.jpg" alt="بورتوكليه طارة" class="product-image" onerror="this.src=''; this.style.display='none';">
+       </div>
+       <div class="p-8">
+        <h3 class="elegant-title text-3xl font-bold mb-4" style="color: #256397;">بورتوكليه طارة</h3>
+        <p class="text-lg mb-5 leading-relaxed" style="color: #555;">مطرزة يدويًا للمفاتيح والحقائب</p>
+        <ul class="space-y-3">
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">طارة بحجم 5 cm</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">إطار خشبي أنيق</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">إكسسوار للمفاتيح والحقائب</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">مخصصة بعبارات وأشكال حسب الطلب</span></li>
+        </ul>
+       </div>
+      </div><!-- Crochet Shawls -->
+      <div class="product-card bg-white rounded-3xl shadow-lg overflow-hidden">
+       <div class="overflow-hidden"><img src="شال كروشيه.jpg" alt="شالات كروشيه" class="product-image" onerror="this.src=''; this.style.display='none';">
+       </div>
+       <div class="p-8">
+        <h3 class="elegant-title text-3xl font-bold mb-4" style="color: #256397;">شالات كروشيه</h3>
+        <p class="text-lg mb-5 leading-relaxed" style="color: #555;">شال مصنوع يدويًا من الكروشيه</p>
+        <ul class="space-y-3">
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">اللون والشكل والحجم حسب الرغبة</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">مصمم ليكون لكم فقط</span></li>
+        </ul>
+       </div>
+      </div><!-- Crochet Hats -->
+      <div class="product-card bg-white rounded-3xl shadow-lg overflow-hidden">
+       <div class="overflow-hidden"><img src="قبعة كروشيه.jpg" alt="قبعات كروشيه" class="product-image" onerror="this.src=''; this.style.display='none';">
+       </div>
+       <div class="p-8">
+        <h3 class="elegant-title text-3xl font-bold mb-4" style="color: #256397;">قبعات كروشيه</h3>
+        <p class="text-lg mb-5 leading-relaxed" style="color: #555;">قبعة كروشيه مصنوعة يدويًا بأشكال جميلة</p>
+
+<li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">تخصيص الحجم واللون</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">مناسبة لجميع الأعمار</span></li>
+        </ul>
+       </div>
+      </div><!-- Book Covers -->
+      <div class="product-card bg-white rounded-3xl shadow-lg overflow-hidden">
+       <div class="overflow-hidden"><img src="غلاف كتاب كروشيه.jpg" alt="أغلفة كتب كروشيه" class="product-image" onerror="this.src=''; this.style.display='none';">
+       </div>
+       <div class="p-8">
+        <h3 class="elegant-title text-3xl font-bold mb-4" style="color: #256397;">أغلفة كتب كروشيه</h3>
+        <p class="text-lg mb-5 leading-relaxed" style="color: #555;">غلاف كتاب كروشيه مصنوع يدويًا حسب الطلب</p>
+        <ul class="space-y-3">
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">يصمم بحجم كتابك بدقة</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">الشكل واللون حسب الرغبة</span></li>
+         <li class="flex items-start gap-3 list-item"><span class="text-xl" style="color: #256397;">✦</span> <span style="color: #999;">هدية مثالية لعشاق القراءة</span></li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <div class="text-center mt-16 p-10 bg-white rounded-3xl shadow-md max-w-3xl mx-auto border border-gray-100">
+      <p class="elegant-title text-3xl font-bold mb-3" style="color: #256397;">جميع المنتجات</p>
+      <p class="text-xl" style="color: #555;">مصنوعة يدويًا بعناية · قابلة للتخصيص الكامل</p>
+     </div>
+    </div>
+   </section>
+<!-- Contact Section -->
+   <section id="contact" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+     <h2 class="elegant-title section-title text-5xl font-bold text-center mb-20" style="color: #256397;" id="contact-title">تواصلوا معنا</h2>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8"><a href="https://www.instagram.com/happinessmakers6" target="_blank" rel="noopener noreferrer" class="contact-card p-12 rounded-3xl shadow-xl text-center" style="background-color: #256397;">
+       <svg class="w-20 h-20 mx-auto mb-6 text-white" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+       </svg><h3 class="elegant-title text-3xl font-bold text-white mb-3">Instagram</h3><p class="text-xl text-white mb-2 font-semibold">@happinessmakers6</p><p class="text-white opacity-95">تابعونا لمتابعة أعمالنا الجديدة</p></a> <a href="https://wa.me/9613577895" target="_blank" rel="noopener noreferrer" class="contact-card p-12 rounded-3xl shadow-xl text-center" style="background-color: #256397;">
+       <svg class="w-20 h-20 mx-auto mb-6 text-white" fill="currentColor" viewbox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+       </svg><h3 class="elegant-title text-3xl font-bold text-white mb-3">WhatsApp</h3><p class="text-xl text-white mb-2 font-semibold" dir="ltr">+961 3 577 895</p><p class="text-white opacity-95">تواصلوا معنا للطلب والاستفسار</p></a>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 text-center text-white relative overflow-hidden" style="background: linear-gradient(135deg, #256397 0%, #1a4a6d 100%);">
+    <div class="relative z-10">
+     <p class="elegant-title text-2xl font-bold mb-2">Happiness Makers</p>
+     <div class="decorative-line my-4"></div>
+     <p class="text-sm opacity-90">صنع بحب</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_title: "Happiness Makers",
+hero_subtitle: "حيث تصنع السعادة بأيد مبدعة",
+      about_title: "من نحن",
+      products_title: "منتجاتنا المميزة",
+      contact_title: "تواصلوا معنا",
+      primary_color: "#256397",
+      accent_color: "#1a4a6d",
+      background_color: "#f8f9fb",
+      text_color: "#333333"
+    };
+
+    async function onConfigChange(config) {
+      document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+      document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+      document.getElementById('products-title').textContent = config.products_title || defaultConfig.products_title;
+      document.getElementById('contact-title').textContent = config.contact_title || defaultConfig.contact_title;
+      document.getElementById('nav-logo').textContent = config.hero_title || defaultConfig.hero_title;
+
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+
+      const styleElements = document.querySelectorAll('[style*="#256397"]');
+      styleElements.forEach(el => {
+        const style = el.getAttribute('style');
+        if (style) {
+          el.setAttribute('style', style.replace(/#256397/g, primaryColor));
+        }
+      });
+
+      const productsSection = document.getElementById('products');
+      if (productsSection) {
+        productsSection.style.backgroundColor = backgroundColor;
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) {
+        footer.style.background = linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%);
+      }
+
+      const contactCards = document.querySelectorAll('.contact-card');
+      contactCards.forEach(card => {
+        card.style.backgroundColor = primaryColor;
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+          ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+          ["about_title", config.about_title || defaultConfig.about_title],
+          ["products_title", config.products_title || defaultConfig.products_title],
+          ["contact_title", config.contact_title || defaultConfig.contact_title]
+        ])
+      });
+    }
+
+    onConfigChange(defaultConfig);
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b761862832a9d86',t:'MTc2NzMxMzI3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
